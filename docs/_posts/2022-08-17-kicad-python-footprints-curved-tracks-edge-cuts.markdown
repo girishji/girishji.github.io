@@ -5,7 +5,9 @@ date:   2022-08-17 12:16:45 +0200
 categories: jekyll update
 ---
 
-## Contents
+# KiCad 6 Python Scripting: Place Footprints, Create Tracks and Vias, and Draw Edge Cuts"
+
+### Contents
 
 - [Introduction](#introduction)
     - [How to Run Python Script](#how-to-run-python-script)
@@ -27,28 +29,29 @@ categories: jekyll update
 ## Introduction
 
 If you find yourself in a situation where you are placing component footprints
-in multiple locations on PCB using [KiCad][kicad-org], or routing a pattern of
+at multiple locations on PCB using [KiCad][kicad-org], or routing a pattern of
 tracks repeatedly (like in a keyboard) you'll save time by automating through a
 Python script. [KiCad 6][kicad-org] has decent support for scripting but
 [documentation][kicad-doc] can be hard to grok. Reading their code is often
 the only recourse. I'll cover the basics of placing footprints and routing
-tracks with basic code examples. 
+tracks with code examples. 
 
 ### How to Run Python Script
 
-Copy (or symlink) the python script to KiCad plugins directory, which (on a
+Copy (or symlink) your python script to KiCad plugins directory, which (on a
 Mac) is located in `~/Documents/KiCad/6.0/scripting/plugins`. You can find out
 where KiCad looks for plugins and scripts by running `import pcbnew; print(pcbnew.PLUGIN_DIRECTORIES_SEARCH)`
 from Python Console in PCB Editor window (icon is at the right hand top corner).
 
 In the console window simply import the python module using `import filename`
-(if your python script is named filename.py). This will work the first time,
-but Python interpreter will not import the same module twice. You reload the
-module again using `import importlib` followed by `importlib.reload(filename)`.
+(if your python script is named filename.py). This will execute the script. It
+works the first time, but Python interpreter will not import the same module
+twice. There is a solution. You reload the module again using `import
+importlib` followed by `importlib.reload(filename)`.
 
 There is an alternate approach of using plugins, but above method is simpler;
 your print output appears in the console window instead of having it
-redirected a file.
+redirected to a file.
 
 ### KiCad Coordinate System
 
@@ -68,6 +71,8 @@ instead of millimeter is also possible but not covered here.
 Get a reference to the footprint object from the
 [Board][ki-board] object. You can then place the footprint and set the orientation by calling the
 footprint object itself.
+
+In the following example we have three footprints.
 
 {% highlight python %}
 import pcbnew
@@ -116,7 +121,6 @@ def add_track(start, end, layer=pcbnew.F_Cu):
     track.SetLayer(layer)
     board.Add(track)
 
-
 # Route track from pad #1 of footprint R1 to pad #1 of D1 with 45-deg corner
 board = pcbnew.GetBoard()
 start = board.FindFootprintByReference("R1").FindPadByNumber("1").GetCenter()
@@ -136,12 +140,14 @@ pcbnew.Refresh()
 [KiCad 6][kicad-org] has support for drawing curved tracks, be it circular arcs or Bezier curves.
 Only circular arcs are covered here. Use [`PCB_ARC`][ki-pcb-arc] object and specify start, mid and end points of arc.
 
-Curved tracks are mostly aesthetic for low frequency applications. While
-pushing tracks during manual routing KiCad may decide to convert rounded edges
-to sharp corners. To manually route a rounded tracks use Ctrl-/ (or Cmd-/ on
+For low frequency applications, curved tracks are mostly for aesthetic reasons. Moreove, during manual routing if 
+you use the "shove" option KiCad may decide to convert rounded edges
+to sharp corners. To manually route a rounded track use *Ctrl-/* (or *Cmd-/* on
 Mac) shortcut to switch among following options: corners at 45 deg -> rounded corners at 45 deg
 -> corners at 90 deg -> rounded corners at 90 deg, after you click on
 the starting point of track.
+
+The following example adds a rounded corner to two straight line tracks.
 
 {% highlight python %}
 import pcbnew
@@ -184,7 +190,7 @@ pcbnew.Refresh()
 
 ### Create Via
 
-Create a via at 1mm offset from pad #2 of R2 and connect a track to it.
+Create a via at 1mm offset from pad #2 of footprint R2 and connect a track to it.
 
 {% highlight python %}
 import pcbnew
@@ -222,7 +228,7 @@ pcbnew.Refresh()
 
 ## Edge Cut Lines
 
-Edge Cut lines define the boundary of the pcb. KiCad 6][kicad-org] has support for drawing
+Edge Cut lines define the boundary of the pcb. [KiCad 6][kicad-org] has support for drawing
 straight lines and arcs on any layer, not just on Edge Cuts. To draw a line you
 specify the end points. To draw an arc you specify starting point, center of
 the arc, and the angle. This API is slightly different from drawing curved
@@ -235,7 +241,7 @@ Use [`PCB_SHAPE`][ki-pcb-shape] object and set the shape to `SHAPE_T_SEGMENT`.
 You can specify the layer and line width. Use the search box in the
 [documentation][kicad-doc] to search for symbols.
 
-Add a edge cuts border around the components. Draw lines on all four
+Add an edge cuts border around the components. Draw lines on all four
 sides and connect them by rounded corners.
 
 {% highlight python %}
@@ -251,7 +257,6 @@ def add_line(start, end, layer=pcbnew.Edge_Cuts):
     segment.SetLayer(layer)
     segment.SetWidth(int(0.1 * pcbnew.IU_PER_MM))
     board.Add(segment)
-
 
 board = pcbnew.GetBoard()
 border = 4 * pcbnew.IU_PER_MM
@@ -334,7 +339,9 @@ for dr in board.GetDrawings():
 pcbnew.Refresh()
 {% endhighlight %}
 
+### Conclusion
 
+KiCad 6 provides adequate scripting capability for designing pcb's of moderate complexity.
 
 
 [kicad-org]: https://www.kicad.org/
@@ -344,3 +351,5 @@ pcbnew.Refresh()
 [ki-from-mm]: https://docs.kicad.org/doxygen-python/namespacepcbnew.html#a3b6e68db767968e491ebb6c2cd82e9c1
 [ki-board]: https://docs.kicad.org/doxygen-python/classpcbnew_1_1BOARD.html
 [ki-footprint]: https://docs.kicad.org/doxygen-python/classpcbnew_1_1FOOTPRINT.html
+[ki-pcb-arc]: https://docs.kicad.org/doxygen-python/classpcbnew_1_1PCB__ARC.html
+[ki-pcb-shape]: https://docs.kicad.org/doxygen-python/classpcbnew_1_1PCB__ARC.html 

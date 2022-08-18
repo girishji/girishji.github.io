@@ -30,7 +30,7 @@ twitter_username: girish_girishji
 github_username:  girishji
 
 # Build settings
-theme: jekyll-theme-minimal
+theme: minima
 plugins:
   - jekyll-feed
 
