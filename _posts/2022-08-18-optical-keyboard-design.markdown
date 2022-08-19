@@ -23,7 +23,7 @@ as the USB polling rate. This helps in gaming applications.
 The fly in the ointment is that optical switches are not suitable for
 handwiring (although possible). One needs at least a [single-switch pcb][optical-amoeba] to
 even consider handwiring. On the other hand, it has become affordable to get pcb's made and SMD
-componenets assembled in China (jlcpcb charges for only 2 pcb's for SMD assembly if you choose
+componenets assembled in China ([jlcpcb][jlcpcb] charges for only 2 pcb's for SMD assembly if you choose
 green FR4). [KiCad][kicad-org] has also matured, with decent
 [scripting support]({% post_url 2022-08-17-kicad-python-footprints-curved-tracks-edge-cuts %}).
 So designing the whole optical keyboard pcb and getting a few copies made is an
@@ -151,3 +151,4 @@ In summary, you can have a *very quick* keyboard.
 [kicad-org]: https://www.kicad.org/
 [photodevices]: http://educypedia.karadimov.info/library/Sharp%20photodevices.pdf
 [optical-amoeba]: https://github.com/girishji/optical-amoeba
+[jlcpcb]: https://jlcpcb.com/
