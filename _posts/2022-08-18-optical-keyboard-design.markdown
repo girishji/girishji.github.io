@@ -22,7 +22,7 @@ as the USB polling rate. This helps in gaming applications.
 
 The fly in the ointment is that optical switches are not suitable for
 handwiring (although possible). One needs at least a [single-switch pcb][optical-amoeba] to
-even consider handwiring. OTOH, it has become affordable to get pcb's made and SMD
+even consider handwiring. On the other hand, it has become affordable to get pcb's made and SMD
 componenets assembled in China (jlcpcb charges for only 2 pcb's for SMD assembly if you choose
 green FR4). [KiCad][kicad-org] has also matured, with decent
 [scripting support]({% post_url 2022-08-17-kicad-python-footprints-curved-tracks-edge-cuts %}).
