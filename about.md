@@ -4,4 +4,5 @@ title: About
 permalink: /about/
 ---
 
-Code, finance, family and Kierkegaard.
+Code, family and Kierkegaard.
+
