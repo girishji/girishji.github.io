@@ -5,7 +5,7 @@ date:   2022-08-17 12:16:45 +0200
 categories: jekyll update
 ---
 
-# KiCad 6 Python Scripting: Place Footprints, Create Tracks and Vias, and Draw Edge Cuts"
+# KiCad 6 Python Scripting: Place Footprints, Create Tracks and Vias, and Draw Edge Cuts
 
 ### Contents
 
@@ -72,7 +72,7 @@ Get a reference to the footprint object from the
 [Board][ki-board] object. You can then place the footprint and set the orientation by calling the
 footprint object itself.
 
-In the following example we have three footprints.
+In the following example we have three (SMD) footprints, for 2 resistors and a diode.
 
 {% highlight python %}
 import pcbnew
@@ -342,6 +342,12 @@ pcbnew.Refresh()
 ### Conclusion
 
 KiCad 6 provides adequate scripting capability for designing pcb's of moderate complexity.
+
+***
+
+KiCad projects that use Python scripts:
+- [Optical keyboard with MX switches](https://github.com/girishji/optical-keyboard-mx)
+- [Optical keyboard with low profile switches](https://github.com/girishji/keychron-optical-keyboard)
 
 
 [kicad-org]: https://www.kicad.org/
