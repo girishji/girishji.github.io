@@ -17,7 +17,7 @@ categories: kicad
     - [Curved Track](#curved-track)
     - [Create Via](#create-via)
     - [Remove All Tracks and Vias](#remove-all-tracks-and-vias)
-- [Edge Cuts Lines](#edge-cut-lines)
+- [Edge Cuts](#edge-cuts)
     - [Draw Line](#draw-line)
     - [Draw Arc](#draw-arc)
     - [Remove All Lines](#remove-all-lines)
@@ -224,7 +224,7 @@ for t in board.GetTracks():
 pcbnew.Refresh()
 {% endhighlight %}
 
-## Edge Cut Lines
+## Edge Cuts
 
 Edge Cut lines define the boundary of the pcb. [KiCad 6][kicad-org] has support for drawing
 straight lines and arcs on any layer, not just on Edge Cuts. To draw a line you
