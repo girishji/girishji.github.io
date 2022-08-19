@@ -12,7 +12,7 @@ github_username:  girishji
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-hacker
 # theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
