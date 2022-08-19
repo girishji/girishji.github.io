@@ -77,7 +77,8 @@ For **3.3v**:
 * **R** and **RL** are in ohms
 
 Switching can be accomplished at low currents (~1 mA at IR and 0.2 mA at PT) reliably as long as you
-keep **RL** high. This means a single GPIO pin set as "Output" can drive a row of
+keep **RL** high. IR maybe rated at 20 mA but such high current is generally wasteful.
+By supplying low current to IR, a single GPIO "Output" pin can drive a row of
 15 switches in a typical keyboard. STM32 based MCU can supply up to 20 mA per GPIO
 pin. RP2020 can provide upto 17 mA per GPIO pin.
 
