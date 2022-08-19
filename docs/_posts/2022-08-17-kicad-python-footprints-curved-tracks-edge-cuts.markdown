@@ -5,7 +5,7 @@ date:   2022-08-17 12:16:45 +0200
 categories: jekyll update
 ---
 
-# KiCad 6 Python Scripting: Place Footprints, Create Tracks and Vias, and Draw Edge Cuts
+# KiCad 6 Python Scripting: Place Footprints, Create Tracks, Curved Tracks, Vias, and Edge Cut Lines
 
 ### Contents
 
