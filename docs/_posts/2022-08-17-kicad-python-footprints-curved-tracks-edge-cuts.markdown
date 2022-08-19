@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "KiCad 6 Python Scripting: Place Footprints, Create Curved Tracks, Vias, Edge Cut Lines"
+title:  "KiCad 6 Python Scripting: Place Footprints, Create Tracks, Curved Tracks, Vias, and Edge Cut Lines"
 date:   2022-08-17 12:16:45 +0200
-categories: jekyll update
+categories: kicad kicad6 python pythonscript curved track via track edgecutline
+tags: kicad kicad6 python pythonscript track curvedtrack via edgecutline
 ---
-
-# KiCad 6 Python Scripting: Place Footprints, Create Tracks, Curved Tracks, Vias, and Edge Cut Lines
 
 ### Contents
 
