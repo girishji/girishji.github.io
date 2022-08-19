@@ -14,7 +14,6 @@ github_username:  girishji
 markdown: kramdown
 theme: minima
 # theme: jekyll-theme-hacker
-# theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
 
