@@ -12,7 +12,7 @@ github_username:  girishji
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-hacker
+theme: jekyll-theme-leap-day
 # theme: jekyll-theme-hacker
 plugins:
   - jekyll-feed
