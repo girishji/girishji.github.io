@@ -345,6 +345,7 @@ KiCad 6 provides adequate scripting capability for designing pcb's of moderate c
 ***
 
 KiCad projects that use Python scripts:
+
 - [Optical keyboard with MX switches](https://github.com/girishji/optical-keyboard-mx)
 - [Optical keyboard with low profile switches](https://github.com/girishji/keychron-optical-keyboard)
 
