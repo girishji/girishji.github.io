@@ -15,9 +15,8 @@ tracks with code examples.
 
 ### Contents
 
-- [Introduction](#introduction)
-    - [How to Run Python Script](#how-to-run-python-script)
-    - [KiCad Coordinate System](#kicad-coordinate-system)
+- [How to Run Python Script](#how-to-run-python-script)
+- [KiCad Coordinate System](#kicad-coordinate-system)
 - [Footprints](#footprints)
     - [Place Footprint](#place-footprint)
 - [Tracks](#tracks)
@@ -31,10 +30,8 @@ tracks with code examples.
     - [Remove All Lines](#remove-all-lines)
 
 
-
-## Introduction
-
-Skip this section if you are already somewhat familiar with KiCad and scripting.
+*** 
+<br>
 
 ### How to Run Python Script
 
