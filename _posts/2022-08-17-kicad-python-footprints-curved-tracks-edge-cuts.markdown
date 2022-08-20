@@ -5,6 +5,14 @@ date:   2022-08-17 12:16:45 +0200
 categories: kicad
 ---
 
+If you find yourself in a situation where you are placing component footprints
+at multiple locations on PCB using [KiCad][kicad-org], or routing a pattern of
+tracks repeatedly (like in a keyboard) you'll save time by automating through a
+Python script. [KiCad 6][kicad-org] has decent support for scripting but
+[documentation][kicad-doc] can be hard to grok. Reading their code is often
+the only recourse. I'll cover the basics of placing footprints and routing
+tracks with code examples. 
+
 ### Contents
 
 - [Introduction](#introduction)
@@ -26,13 +34,7 @@ categories: kicad
 
 ## Introduction
 
-If you find yourself in a situation where you are placing component footprints
-at multiple locations on PCB using [KiCad][kicad-org], or routing a pattern of
-tracks repeatedly (like in a keyboard) you'll save time by automating through a
-Python script. [KiCad 6][kicad-org] has decent support for scripting but
-[documentation][kicad-doc] can be hard to grok. Reading their code is often
-the only recourse. I'll cover the basics of placing footprints and routing
-tracks with code examples. 
+Skip this section if you are already somewhat familiar with KiCad and scripting.
 
 ### How to Run Python Script
 

@@ -6,8 +6,6 @@ categories: opticalkb
 ---
 
 
-## Introduction
-
 Optical switch (like the kind sold by Gateron and Keychron) depends on an IR
 LED (IR) and a phototransistor (PT) pair for
 operation. When switch is actuated, a plunger blocks the IR light from striking
@@ -126,7 +124,7 @@ For a 5 row keyboard scan rate will be 10 khz.
 
 ![image](/assets/opic3.png){: width="550" }
 
-USB 1.1 supports 1 mSec polling (1 kHz), and USB 2 supports up to 8 kHz. Since
+USB 1.1 supports 1 mSec polling (1 kHz) while USB 2 supports up to 8 kHz. Since
 these polling packets are small, data transfer rate limitation does not apply.
 In summary, you can have a *very quick* keyboard.
 
