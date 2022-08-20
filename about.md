@@ -1,8 +1,7 @@
 ---
 layout: page
-title: About
+title: "About"
 permalink: /about/
 ---
 
-Code, family and Kierkegaard.
-
+Code, family, and Kierkegaard.

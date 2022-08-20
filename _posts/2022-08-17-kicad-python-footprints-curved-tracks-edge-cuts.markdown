@@ -3,7 +3,8 @@ layout: post
 title:  "KiCad 6 Python Scripting: Place Footprints, Create Tracks, Curved Tracks, Vias, and Edge Cut Lines"
 date:   2022-08-17 12:16:45 +0200
 categories: kicad
-tags: kicad kicad6 scripting
+tags: kicad kicad6 python scripting
+keywords: kicad, kicad6, python, scripting
 ---
 
 If you find yourself in a situation where you are placing component footprints
