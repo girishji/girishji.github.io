@@ -12,12 +12,12 @@ github_username:  girishji
 
 # Build settings
 markdown: kramdown
+
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
+# remote_theme: pages-themes/minimal@v0.2.0
 # theme: jekyll-theme-slate
 # theme: jekyll-theme-hacker
+
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-
-
-# theme: jekyll-theme-minimal
