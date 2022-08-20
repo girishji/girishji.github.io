@@ -3,6 +3,7 @@ layout: post
 title:  "Optical Keyboard: Circuit Design Tips"
 date:   2022-08-17 12:16:45 +0200
 categories: opticalkb
+tags: optical switch keyboard
 ---
 
 
