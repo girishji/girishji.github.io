@@ -93,7 +93,7 @@ slightly longer, but not by much (20 uSec can work).
 
 ## Optical Matrix
 
-The number of switches in a full-sized keyboard far exceed the number of GPIO pins available in a MCU. A solution
+The total number of switches in a full-sized keyboard far exceed the number of GPIO pins available in a MCU. A solution
 to this problem is to connect switches in a matrix. Optical matrix is not much different from matrix used
 for mechanical switches. You either select a column and read rows one by one, or *vice versa*.
 
@@ -141,7 +141,7 @@ In summary, you can have a *very quick* keyboard.
 - [Amoeba single switch pcb](https://github.com/girishji/optical-amoeba)
 - [Another optical keyboard](https://github.com/girishji/optical-keyboard)
 - [Yet another](https://github.com/Dachtire/sok42)
-- [Photdevices](http://educypedia.karadimov.info/library/Sharp%20photodevices.pdf)
+- [Photodiode/Phototransistor Application Circuits](http://educypedia.karadimov.info/library/Sharp%20photodevices.pdf)
 
 
 ### Thanks
