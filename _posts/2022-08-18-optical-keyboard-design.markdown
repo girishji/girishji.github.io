@@ -146,7 +146,7 @@ In summary, you can have a *very quick* keyboard.
 
 ### Thanks
 
-[Optical Future](https://discord.com/login?redirect_to=%2Fchannels%2F715975244896272618)
+[Optical Future](https://discord.gg/FafPTRDC)
 
 
 [kicad-org]: https://www.kicad.org/
