@@ -82,10 +82,10 @@ By supplying low current to IR, a single GPIO "Output" pin can drive a row of
 15 switches in a typical keyboard. STM32 based MCU can supply up to 20 mA per GPIO
 pin. RP2020 can provide upto 17 mA per GPIO pin.
 
-Typical rise time of PT is about 15 uSec at 1 mA current. This is the minimum
+Typical rise time of PT is about 15 us at 1 mA current. This is the minimum
 amount of time you have to wait after activating IR ("Output" GPIO pin going HIGH) and before taking reading
 at the "Input" GPIO pin. At low current (**Ic**) switching time will be
-slightly longer, but not by much (20 uSec can work).
+slightly longer, but not by much (20 us can work).
 
 
 ![image](/assets/opic2.png){: width="350" }
@@ -114,7 +114,7 @@ wait for PT to "rise"), and read row pins one by one. After we are done,
 change column pin output back to "Low" and proceed to the next column pin.
 Reading time is usually negligible compared to PT rise time.
 A full matrix scan will take approximately `rise_time x number_of_columns`. For 15 column
-keyboard and 20 uSec wait time the matrix scan rate will be 3.33 kHz.
+keyboard and 20 us wait time the matrix scan rate will be 3.33 kHz.
 
 ![image](/assets/opic4.png){: width="550" }
 
