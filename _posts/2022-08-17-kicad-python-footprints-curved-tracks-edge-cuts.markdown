@@ -60,7 +60,7 @@ redirected to a file.
 ### KiCad Coordinate System
 
 The Cartesian plane KiCad uses has Y-axis pointing down and X-axis pointing to
-the left. Moreover, distance is specified in millionth of millimeter, and
+the right. Moreover, distance is specified in millionth of millimeter, and
 angles are in tenths of a degree. These aspects will become clear later. Points
 in space are represented by [`wxPoint`][ki-wxpt]. There is also a millimeter
 variant called [`wxPointMM`][ki-wxpt-mm], and a conversion routine [`fromMM()`][ki-from-mm]. Using mils
