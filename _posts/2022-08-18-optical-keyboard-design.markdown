@@ -104,7 +104,7 @@ redirected to another switch's IR. So the GPIO pin (set as "Input") will not
 register any change in voltage. You could use diodes to solve this problem, but
 even fast diodes (like 1N4148) will interfere with the rise time of PT and
 affect scan rate (will be <70 Hz). The solution is to split the power source of IR and PT; have IR driven
-by GPIO pin and PT driven by 3v3 pin.
+by GPIO pin and PT driven separategly (from USB through voltage regulator or from 3v3/5v pin of breakout board).
 
 
 ### Select Column and Read Rows
