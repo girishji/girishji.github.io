@@ -144,7 +144,7 @@ pcbnew.Refresh()
 [KiCad 6][kicad-org] has support for drawing curved tracks, be it circular arcs or Bezier curves.
 Only circular arcs are covered here. Use [`PCB_ARC`][ki-pcb-arc] object and specify start, mid and end points of arc.
 
-For low frequency applications, curved tracks are mostly for aesthetic reasons. Moreove, during manual routing if 
+For low frequency applications, curved tracks are mostly for aesthetic reasons. Moreover, during manual routing if 
 you use the "shove" option KiCad may decide to convert rounded edges
 to sharp corners. To manually route a rounded track use *Ctrl-/* (or *Cmd-/* on
 Mac) shortcut to switch among following options: corners at 45 deg -> rounded corners at 45 deg

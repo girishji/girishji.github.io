@@ -11,7 +11,7 @@ keywords: optical, keyboard, switch, phototransistor, ir, led
 Optical switch (like the kind sold by Gateron and Keychron) depends on an IR
 LED (IR) and a phototransistor (PT) pair for
 operation. When switch is actuated, a plunger blocks the IR light from striking
-the PT causing voltage change across collector-emittor junction of PT. Unlike a
+the PT causing voltage change across collector-emitter junction of PT. Unlike a
 mechanical switch, an optical switch does not have copper contacts that rub
 against the plastic shaft. Since there is no resistance caused by rubbing,
 optical switches are extremely smooth. They can be used with low tension
@@ -23,7 +23,7 @@ as the USB polling rate. This helps in gaming applications.
 The fly in the ointment is that optical switches are not suitable for
 handwiring (although possible). One needs at least a [single-switch pcb][optical-amoeba] to
 even consider handwiring. On the other hand, it has become affordable to get pcb's made and SMD
-componenets assembled in China ([jlcpcb][jlcpcb] charges for only 2 pcb's for SMD assembly if you choose
+components assembled in China ([jlcpcb][jlcpcb] charges for only 2 pcb's for SMD assembly if you choose
 green FR4). [KiCad][kicad-org] has also matured, with decent
 [scripting support]({% post_url 2022-08-17-kicad-python-footprints-curved-tracks-edge-cuts %}).
 So designing the whole optical keyboard pcb and getting a few copies made is an
@@ -73,14 +73,14 @@ For **3.3v**:
 
 * Voltage across **R** is ~2.14V
 * **I** = 2.14/**R**, and **Ic** ~ 3.3/**RL**
-* To get reliable switching use **RL** atleast >20% above threshold value
+* To get reliable switching use **RL** at least >20% above threshold value
 * **R** and **RL** are in ohms
 
 Switching can be accomplished at low currents (~1 mA at IR and 0.2 mA at PT) reliably as long as you
 keep **RL** high. IR maybe rated at 20 mA but such high current is generally wasteful.
 By supplying low current to IR, a single GPIO "Output" pin can drive a row of
 15 switches in a typical keyboard. STM32 based MCU can supply up to 20 mA per GPIO
-pin. RP2020 can provide upto 17 mA per GPIO pin.
+pin. RP2020 can provide up to 17 mA per GPIO pin.
 
 Typical rise time of PT is about 15 us at 1 mA current. This is the minimum
 amount of time you have to wait after activating IR ("Output" GPIO pin going HIGH) and before taking reading
@@ -121,12 +121,12 @@ keyboard and 20 us wait time the matrix scan rate will be 3.33 kHz.
 ### Select Row and Read Columns
 
 In this arrangement we select a row and read column pins one by one.
-A full matrix scan will take `rise_time x number_of_rows`. This arrangment will produce higher scan rate.
+A full matrix scan will take `rise_time x number_of_rows`. This arrangement will produce higher scan rate.
 For a 5 row keyboard scan rate will be 10 khz.
 
 ![image](/assets/opic3.png){: width="550" }
 
-USB 1.1 supports 1 mSec polling (1 kHz) while USB 2 supports up to 8 kHz. Since
+USB 1.1 supports 1 ms polling (1 kHz) while USB 2 supports up to 8 kHz. Since
 these polling packets are small, data transfer rate limitation does not apply.
 In summary, you can have a *very quick* keyboard.
 
