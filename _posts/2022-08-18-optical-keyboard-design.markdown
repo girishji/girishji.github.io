@@ -80,16 +80,11 @@ Switching can be accomplished at low currents (~1 mA at IR and 0.2 mA at PT) rel
 keep **RL** high. IR maybe rated at 20 mA but such high current is generally wasteful.
 By supplying low current to IR, a single GPIO "Output" pin can drive a row of
 15 switches in a typical keyboard. STM32 based MCU can supply up to 20 mA per GPIO
-pin. RP2020 can provide up to 17 mA per GPIO pin.
-
-Typical rise time of PT is about 15 us at 1 mA current. This is the minimum
-amount of time you have to wait after activating IR ("Output" GPIO pin going HIGH) and before taking reading
-at the "Input" GPIO pin. At low current (**Ic**) switching time will be
-slightly longer, but not by much (20 us can work).
-
+pin. RP2020 can provide up to 17 mA per GPIO pin. At low currents PT rise/fall time
+will be around 100us for Everlight PT12-21B/TR8 and this will result in around 1000Hz (100x2x5)
+scan rate for a 5 row keyboard.
 
 ![image](/assets/opic2.png){: width="350" }
-
 
 ## Optical Matrix
 
@@ -126,10 +121,12 @@ For a 5 row keyboard scan rate will be 10 khz.
 
 ![image](/assets/opic3.png){: width="550" }
 
-USB 1.1 supports 1 ms polling (1 kHz) while USB 2 supports up to 8 kHz. Since
-these polling packets are small, data transfer rate limitation does not apply.
-In summary, you can have a *very quick* keyboard.
-
+USB 1.1 and USB 2 (FS) support 1 ms polling (1 kHz) while USB 2 (HS) supports up to 8 kHz.
+You can accomplish over 1 kHz scanning frequency using a milliampere of current at
+each IR. To accomplish 8 kHz scanning frequency you need more current than what a single output pin
+of MCU can handle. Generally, this is accomplished by sourcing current directly
+from USB or a voltage regulator using a transistor switch (like BSS138), but
+more on this in the next writeup.
 
 ***
 

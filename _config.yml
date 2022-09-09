@@ -33,6 +33,8 @@ plugins:
 google_analytics: G-ZYNKCMZ206
 
 permalink: /:year/:month/:day/:title/
+# permalink: /:categories/:year/:month/:day/:title:output_ext
+# permalink: /:categories/:year/:month/:day/:title/
 paginate_path: /posts/:num/
 paginate: 5
 
