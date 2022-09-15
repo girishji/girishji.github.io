@@ -8,6 +8,10 @@ keywords: optical, keyboard, switch, phototransistor, ir, led
 ---
 
 
+**  The information in this post is outdated. Please wait until I update this post.  **
+
+
+
 Optical switch (like the kind sold by Gateron and Keychron) depends on an IR
 LED (IR) and a phototransistor (PT) pair for
 operation. When switch is actuated, a plunger blocks the IR light from striking
