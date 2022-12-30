@@ -1,0 +1,4 @@
+in the file index.md, when you specify layout: xxx, look
+for xxx.md file in _layouts. I copied these files from
+    various themes. You can edit them.
+
