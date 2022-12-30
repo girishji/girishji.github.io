@@ -183,8 +183,10 @@ use 2 4x9 matrices, and we need 26 GPIO pins. Each row has 9 IRs and each can be
 supplied with 20mA or more.
 
 FS (full speed) USB supports 1 ms polling (1 kHz) while HS (high speed) USB
-supports 125us polling (8 kHz). It is possible to achieve ~8 kHz scan rate
-using PT without additional circuitry. Hopefully, this writeup kindled
+supports 125us polling (8 kHz). Even though phototransistors are inherently
+slow it is possible to achieve ~8 kHz scan rate
+using PT without additional circuitry, while photodiodes in combination with
+OpAmps can generate square waves upto 100 kHz. Hopefully, this writeup kindled
 some curiousity in you about the workings of optical keyboards.
 
 
