@@ -34,10 +34,10 @@ permalink: /:year/:month/:day/:title/
 
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: "broccolini/athena"
-remote_theme: "tocttou/hacker-blog"
+# remote_theme: "tocttou/hacker-blog"
 # remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
-# theme: jekyll-theme-hacker
+theme: jekyll-theme-hacker
 
 
 plugins:

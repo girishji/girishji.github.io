@@ -6,3 +6,7 @@ good explanation at https://github.com/mmistakes/so-simple-theme
 
 if theme has index.html or index.md you may not need one.
     if you have one make sure it matches theirs
+
+_config.yml file contains theme selection, plugins and their
+customization. these plugin variables are used in files 
+under _layouts and _includes/
