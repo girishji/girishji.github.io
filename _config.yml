@@ -11,9 +11,26 @@ twitter_username:
 github_username:  girishji
 author: Girish
 
+  google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+google_analytics: G-ZYNKCMZ206
+disqus:
+  shortname: # Disqus shortname, e.g. "my_disqus_shortname"
+twitter:
+  username: # site's Twitter username, e.g. "mmistakes"
+
 # Build settings
 markdown: kramdown
 excerpt_separator: "<!-- more -->"
+feed:
+  path: atom.xml
+# permalink: /:categories/:title/
+permalink: /:year/:month/:day/:title/
+# permalink: /:categories/:year/:month/:day/:title:output_ext
+# permalink: /:categories/:year/:month/:day/:title/
 
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: "broccolini/athena"
@@ -37,11 +54,7 @@ exclude:
   - bak/
   - Gemfile
 
-google_analytics: G-ZYNKCMZ206
 
-permalink: /:year/:month/:day/:title/
-# permalink: /:categories/:year/:month/:day/:title:output_ext
-# permalink: /:categories/:year/:month/:day/:title/
 
 # Pagination
 paginate_path: /posts/:num/
