@@ -14,7 +14,7 @@ The circuits used here are rudimentary and they will provide performance
 comparable to a mechanical keyboard. Low latency specialized
 circuits are not covered in this guide.
 
-You can think of [Optical switches][optical-switch-makers] as apertures through
+You can think of optical switches as apertures through
 which infra-red (IR) light (from LED) is allowed to pass through and shine on a
 phototransistor (PT). When switch is pressed the aperture window
 closes and stops the light from being irradiated on PT. PT generates current
