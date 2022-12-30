@@ -13,6 +13,7 @@ author: Girish
 
 # Build settings
 markdown: kramdown
+excerpt_separator: "<!-- more -->"
 
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: "broccolini/athena"
@@ -23,12 +24,15 @@ remote_theme: "yous/whiteglass"
 
 plugins:
   - jekyll-remote-theme
-  - jekyll-feed
-  - jekyll-seo-tag
+  # - jekyll-feed
+  # - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-archives
   
-# Needed by the theme
+# Needed by whiteglass theme
+exclude:
+  bak/
 
 google_analytics: G-ZYNKCMZ206
 
@@ -38,6 +42,16 @@ permalink: /:year/:month/:day/:title/
 paginate_path: /posts/:num/
 paginate: 5
 
+# Markdown settings
+kramdown:
+  auto_ids: false
+  enable_coderay: false
+  entity_output: as_char
+  footnote_nr: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6
+
+# jekyll-archives
 jekyll-archives:
   enabled:
     - categories
