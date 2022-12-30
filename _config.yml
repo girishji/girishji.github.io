@@ -24,21 +24,26 @@ remote_theme: "mmistakes/so-simple-theme@3.2.0"
 
 plugins:
   - jekyll-remote-theme
-  # - jekyll-feed
-  # - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-archives
+  # - jekyll-archives
   
-# Needed by whiteglass theme
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
 exclude:
-  bak/
+  - bak/
+  - Gemfile
 
 google_analytics: G-ZYNKCMZ206
 
 permalink: /:year/:month/:day/:title/
 # permalink: /:categories/:year/:month/:day/:title:output_ext
 # permalink: /:categories/:year/:month/:day/:title/
+
+# Pagination
 paginate_path: /posts/:num/
 paginate: 5
 
