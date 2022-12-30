@@ -4,7 +4,7 @@ title: Optical Matrix
 # email: girishji@gmail.com
 emailme: mailto:girishji@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  High Speed Optical Keyboards and Other Stuff.
+  Low Latency Optical Keyboards.
 baseurl: "" 
 url: "" 
 twitter_username: 
@@ -16,9 +16,9 @@ markdown: kramdown
 
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: "broccolini/athena"
-remote_theme: "yous/whiteglass"
+# remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
-# theme: jekyll-theme-hacker
+theme: jekyll-theme-hacker
 
 
 plugins:
