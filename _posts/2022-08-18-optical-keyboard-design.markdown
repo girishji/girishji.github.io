@@ -1,4 +1,4 @@
-G--
+---
 layout: post
 title:  "Optical Keyboard: Circuit Design"
 date:   2022-08-17 12:16:45 +0200
