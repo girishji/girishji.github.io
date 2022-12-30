@@ -1,2 +1,4 @@
+---
 layout: home
 paginate: true
+---
