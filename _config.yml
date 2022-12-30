@@ -15,18 +15,18 @@ author: Girish
 markdown: kramdown
 
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
-# remote_theme: "broccolini/athena"
+remote_theme: "broccolini/athena"
 # remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
-theme: jekyll-theme-hacker
+# theme: jekyll-theme-hacker
 
 
 plugins:
   - jekyll-remote-theme
-  # - jekyll-feed
-  # - jekyll-seo-tag
-  # - jekyll-paginate
-  # - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-sitemap
   
 # Needed by the theme
 
@@ -35,14 +35,14 @@ google_analytics: G-ZYNKCMZ206
 permalink: /:year/:month/:day/:title/
 # permalink: /:categories/:year/:month/:day/:title:output_ext
 # permalink: /:categories/:year/:month/:day/:title/
-# paginate_path: /posts/:num/
-# paginate: 5
+paginate_path: /posts/:num/
+paginate: 5
 
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layout: category_archives
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
