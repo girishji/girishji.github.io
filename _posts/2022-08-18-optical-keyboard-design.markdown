@@ -1,4 +1,4 @@
----
+G--
 layout: post
 title:  "Optical Keyboard: Circuit Design"
 date:   2022-08-17 12:16:45 +0200
@@ -183,9 +183,9 @@ use 2 4x9 matrices, and we need 26 GPIO pins. Each row has 9 IRs and each can be
 supplied with 20mA or more.
 
 FS (full speed) USB supports 1 ms polling (1 kHz) while HS (high speed) USB
-supports 125us polling (8 kHz). Given the low speed switching characteristics of PT it is difficult to
-achieve 8kHz without spending a lot of current. But there are ways to achieve scan rate well
-above 100 kHz. Hopefully, this writeup kindled curiousity in you about the workings of optical keyboards.
+supports 125us polling (8 kHz). It is possible to achieve ~8 kHz scan rate
+using PT without additional circuitry. Hopefully, this writeup kindled
+some curiousity in you about the workings of optical keyboards.
 
 
 ***
