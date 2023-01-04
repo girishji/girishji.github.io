@@ -7,7 +7,7 @@ tags: optical keyboard switch
 keywords: optical, keyboard, switch, phototransistor, ir, led
 ---
 
-![image](/assets/opic8.png){: width="275" } ![image](/assets/opic7.png){: width="275" }
+![image](/assets/opic8.png "Keyboard with low-profile Keychron optical switches"){: width="275" } ![image](/assets/opic7.png "Keyboard with low-profile Keychron optical switches"){: width="275" }
 
 This guide will walk you through some concepts that will help you design a
 basic optical keyboard PCB.  No special knowledge is assumed beyond engineering
