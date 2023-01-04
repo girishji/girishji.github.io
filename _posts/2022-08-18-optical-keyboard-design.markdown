@@ -7,7 +7,7 @@ tags: optical keyboard switch
 keywords: optical, keyboard, switch, phototransistor, ir, led
 ---
 
-![image](/assets/opic8.png){: width="200" } ![image](/assets/opic7.png){: width="200" }
+![image](/assets/opic8.png){: width="250" } ![image](/assets/opic7.png){: width="250" }
 
 This guide will walk you through some concepts that will help you design a
 basic optical keyboard PCB.  No special knowledge is assumed beyond engineering
@@ -51,7 +51,7 @@ For these circuits to operate in the switching mode, **Vcc** < **RL** × **Ic**,
 where **Ic** is the maximum anticipated current and **Vcc** is the supply
 voltage.
 
-![image](/assets/opic1.png){: width="550" }
+![image](/assets/opic1.png){: width="400" }
 
 ### *What are the values of **R** and **RL**?*
 
@@ -101,13 +101,13 @@ In the followng [picture](https://youtu.be/XgSKLsWAWGs), the line at the top
 represents current supplied to IR (or current to the base of transistor). The
 line at the bottom is the response of transistor.
 
-![image](/assets/opic6.png){: width="550" }
+![image](/assets/opic6.png){: width="400" }
 
 
 In the following picture voltage values are inverted. 'Rise' is when yellow
 line goes from high to low, and vice versa.
 
-![image](/assets/opic5.png){: width="550" }
+![image](/assets/opic5.png){: width="400" }
 
 Rise, storage and fall time of PT directly impacts the latency of a keyboard.
 Relationship is simple: Higher the current to IR, higher the IR light falling
@@ -169,7 +169,7 @@ based microcontrollers like RP2040 or STM32F4 can handle 20 mA current per pin
 Reading time is usually negligible compared to PT rise/fall time. A full matrix
 scan will take approximately `(rise_time + fall time) x number_of_columns`. 
 
-![image](/assets/opic4.png){: width="550" }
+![image](/assets/opic4.png){: width="400" }
 
 ### Select Row and Read Columns
 
@@ -180,7 +180,7 @@ powered using a N-Mosfet acting as a low-side switch connected to a GPIO pin at
 the gate. We can supply higher power to IR since we are not limited by GPIO
 pin.
 
-![image](/assets/opic3.png){: width="550" }
+![image](/assets/opic3.png){: width="400" }
 
 
 ### Optimization
