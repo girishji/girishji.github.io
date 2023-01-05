@@ -10,3 +10,9 @@ if theme has index.html or index.md you may not need one.
 _config.yml file contains theme selection, plugins and their
 customization. these plugin variables are used in files 
 under _layouts and _includes/
+
+--
+
+todo:
+- how long it takes for finger
+- transistor active region 10x current (gain), saturation. fall time longer. resistance of pt

@@ -182,6 +182,14 @@ pin.
 
 ![image](/assets/opic3.png){: width="550" }
 
+*Note*: To minimize power losses IR led's should be connected in series when
+possible. Modify the above schematic accordingly for your use-case. Voltage
+drop across IR led can be as high as 1.6V. For a 5V supply it is possible to
+thread 3 IRs in series. This will result in ~4.8V voltage drop across all
+led's. Power loss across the resistor is given by **I<sup>2</sup>xR**, where
+**I** is the current. The smaller the value of resistor **R** the lesser the
+power loss. Do not make the mistake of omitting the resistor altogether as that
+will result in runaway current.
 
 ### Optimization
 
