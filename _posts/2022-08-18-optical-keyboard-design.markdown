@@ -41,7 +41,7 @@ the PT between saturation (on) and cutoff (off) states.
 ## Circuit
 
 There are two ways you can measure voltage drop across PT. The circuit shown in
-Figure (A) is a common-emitter amplifier, with IR shown on left and PT on the
+Figure (A) is a common-emitter amplifier, with IR LED shown on left and PT on the
 right. Light input at the base causes the output (**Vout**) to decrease from
 high to low. If you were to connect **Vout** to the input pin of MCU it would
 read LOW to HIGH when switch is depressed. The circuit shown in Figure (B) is a
@@ -55,17 +55,17 @@ voltage.
 
 ### *What are the values of **R** and **RL**?*
 
-Majority of current is consumed by the IR. First we have to determine how much
-current is available for each IR, and then we can use Ohm's law to calculate
+Majority of current is consumed by the IR LED. First we have to determine how much
+current is available for each IR LED, and then we can use Ohm's law to calculate
 **R**. As a USB 'device' a keyboard is allocated 500mA current. We can budget
 up to 300 mA for optical switches for instance, and use the rest for
-microcontroller and backlight. We can allocate the current budget to each IR
+microcontroller and backlight. We can allocate the current budget to each IR LED
 based on the matrix we choose. This will become clear later.  **RL** is chosen
 by trial-and-error such that multimeter reads TTL level voltage when switch is
 on/off. Value of **RL** depends on the brand/type of PT and amount of IR light
 falling on PT. Here are some values for Everlight IR12-21C/TR8 and PT12-21B/TR8
 combo. Please do your own experiment to fine tune **RL**. You can also use 5V
-source directly from USB instead of 3V3 for powering IR. 
+source directly from USB instead of 3V3 for powering IR LED. 
 
 For **3.3v**:
 
@@ -98,7 +98,7 @@ is a limiting factor in fast switching applications. If you see the datasheet
 of a BJT transistor you will see rise, fall and storage time mentioned.
 
 In the followng [picture](https://youtu.be/XgSKLsWAWGs), the line at the top
-represents current supplied to IR (or current to the base of transistor). The
+represents current supplied to IR LED (or current to the base of transistor). The
 line at the bottom is the response of transistor.
 
 ![image](/assets/opic6.png){: width="550" }
@@ -110,13 +110,13 @@ line goes from high to low, and vice versa.
 ![image](/assets/opic5.png){: width="550" }
 
 Rise, storage and fall time of PT directly impacts the latency of a keyboard.
-Relationship is simple: Higher the current to IR, higher the IR light falling
+Relationship is simple: Higher the current to IR LED, higher the IR light falling
 on PT, lower the response time of PT, and lower the latency of keypress
 detection. With that in mind, here are some values for rise/fall time vs
-current at IR. 
+current at IR LED. 
 
 
-|  **IR Current**  |  **Rise Time**  |  **Fall Time** |
+|  **IR LED Current**  |  **Rise Time**  |  **Fall Time** |
 | --- | --- | --- |
 
 TBD
@@ -129,8 +129,8 @@ can solve this problem two ways: 1) Use a matrix arrangement where a single
 GPIO pin is connected to multiple PTs but only one of the PTs is 'active' at
 any given time, 2) Use a separate device like a multiplexer or shift register
 to read multiple PT voltages from a single GPIO pin. In the former case only a
-subset of IRs are switched on at any given time ('scanning' the matrix). In the
-latter case all IRs can be switched on and switch states can all be read at
+subset of IR LEDs are switched on at any given time ('scanning' the matrix). In the
+latter case all IR LEDs can be switched on and switch states can all be read at
 once. By now you may have already have some ideas about the matrix you want to
 design. Following section covers only basic information.
 
@@ -139,7 +139,7 @@ You either select a column and read rows one by one, or *vice versa*.
 
 ### Select Column and Read Rows
 
-In this arrangement we switch on all IRs in a give column and read PT values
+In this arrangement we switch on all IR LEDs in a give column and read PT values
 across rows. Pseudocode would look like this:
 
 ```
@@ -161,10 +161,10 @@ forever do:
         
 ```
 
-To power IRs in a column you can use a GPIO pin directly (set as OUTPUT). ARM
+To power IR LEDs in a column you can use a GPIO pin directly (set as OUTPUT). ARM
 based microcontrollers like RP2040 or STM32F4 can handle 20 mA current per pin
 (for a maximum of ~40 mA across all pins). If you have 5 columns you can supply
-3.5 mA per IR (leaving 0.5 mA for PT).
+3.5 mA per IR LED (leaving 0.5 mA for PT).
 
 Reading time is usually negligible compared to PT rise/fall time. A full matrix
 scan will take approximately `(rise_time + fall time) x number_of_columns`. 
@@ -177,19 +177,23 @@ In this arrangement we select a row and read column pins one by one. A full
 matrix scan will take `(rise_time + fall_time) x number_of_rows`. This is my
 preferred arrangement since we can achieve higher scan rates. Rows can be
 powered using a N-Mosfet acting as a low-side switch connected to a GPIO pin at
-the gate. We can supply higher power to IR since we are not limited by GPIO
+the gate. We can supply higher power to IR LED since we are not limited by GPIO
 pin.
 
 ![image](/assets/opic3.png){: width="550" }
 
-*Note*: To minimize power losses IR led's should be connected in series when
+*Note*: To minimize power losses IR LEDs could be connected in series when
 possible. Modify the above schematic accordingly for your use-case. Voltage
-drop across IR led can be as high as 1.6V. For a 5V supply it is possible to
-thread 3 IRs in series. This will result in ~4.8V voltage drop across all
-led's. Power loss across the resistor is given by **I<sup>2</sup>xR**, where
-**I** is the current. The smaller the value of resistor **R** the lesser the
-power loss. Do not make the mistake of omitting the resistor altogether as that
-will result in runaway current.
+drop across IR LED (Vf) can be up to 1.6V. For a 5V supply it is
+possible to connect 2 IR LEDs in series. Power loss across the resistor is given by
+**I<sup>2</sup>xR**, where **I** is the current. The smaller the value of
+resistor **R** the lower the power loss. But R value has to be sufficiently
+large such that current can still be regulated. When LEDs heat up, their Vf
+drop, increasing current, causing more heating, more decrease in Vf, and
+possibly thermal runaway and destruction. Calculate R for desired current and
+LED Vf of 1.6V. Then, change LED Vf to 1.4V, keeping the same resistor, and
+calculate the current. Make sure the current is within acceptable limit
+(usually ~20mA).
 
 ### Optimization
 
@@ -200,7 +204,7 @@ has to be accounted for each row separately. Latency is decreased by the same
 amount as rise time. 
 
 Using RP2040 (which has 30 GPIO pins) in a keyboard with 72 switches we can use
-2 4x9 matrices, and we need 26 GPIO pins. Each row has 9 IRs and each can be
+2 4x9 matrices, and we need 26 GPIO pins. Each row has 9 IR LEDs and each can be
 supplied with at least 20mA.
 
 FS (full speed) USB supports 1 ms polling (1 kHz) while HS (high speed) USB
