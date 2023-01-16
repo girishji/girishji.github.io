@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Keyboard: How Quickly Can You Press a Key"
-date:   2022-08-17 12:16:45 +0200
+date:   2023-01-16 10:16:45 +0200
 categories:
 tags: optical keyboard switch 
 keywords: optical, keyboard, switch, phototransistor, ir, led
