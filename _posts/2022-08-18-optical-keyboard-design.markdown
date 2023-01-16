@@ -90,36 +90,34 @@ reach saturation and thereby rise the voltage (say from 0V to 3V) is called
 from 10% of LOW value to 90% of HIGH value. Similary 'fall' time is defined for
 the reverse situation. In addition, there is 'storage' time which is the time
 the transistor stays on even after the base current (in this case light
-incident on the base) has been removed. Storage+fall time is larger than rise
-time because transistor junction behaves like a capacitor. The charge stored in
-the base junctions must be removed before the transistor will turn off. The
-deeper the saturation of transistor the longer the turn off time. Storage time
-is a limiting factor in fast switching applications. If you see the datasheet
-of a BJT transistor you will see rise, fall and storage time mentioned.
+incident on the base) has been removed. Storage+fall time is slightly larger
+than rise time because transistor junction behaves like a capacitor. The charge
+stored in the base junctions must be removed before the transistor will turn
+off. The deeper the saturation of transistor the longer the turn off time.
+Storage time is a limiting factor in fast switching applications. Rise, storage
+and fall time of PT directly impacts the latency of a keyboard.
 
-In the followng [picture](https://youtu.be/XgSKLsWAWGs), the line at the top
-represents current supplied to IR LED (or current to the base of transistor). The
-line at the bottom is the response of transistor.
+How quickly does a PT rise and fall? Here are some illustrative examples for a
+PT driven to saturation. The circuit is the common-emitter amplifier from above
+(A). **Vcc** is set at 3.3V. PT used is Everlight PT12-21B/TR8 and IR LED is
+IR12-21C/TR8. Rise and Fall times for various **R** and **RL** values are given
+below. The oscilloscope screens represent the items in the table. Green line
+represent the voltage drop across PT and yellow line is the voltage drop across IR
+LED. 
 
-![image](/assets/opic6.png){: width="550" }
+| **R** | **IR LED Current** | **RL** | **Rise Time** | **Fall+Storage Time** |
+| --- | --- | --- | --- | --- |
+| 1k ohm | 2.3 mA | 30k ohm | ~250 us | ~400 us |
+| 300 ohm | 7.5 mA | 4.5k ohm | | |
+| 100 ohm | 20.2 mA | 1.8k ohm | | |
 
+![image](/assets/rtime1.png){: width="275" } ![image](/assets/rtime2.png){: width="275" } ![image](/assets/rtime3.png){: width="275"}
 
-In the following picture voltage values are inverted. 'Rise' is when yellow
-line goes from high to low, and vice versa.
+In the above pictures voltage values are inverted. 'Rise' is when yellow
+line goes from high to low, and vice versa. Rise and fall times are
+approximations eye-balled from oscilloscope plots. 
 
-![image](/assets/opic5.png){: width="550" }
-
-Rise, storage and fall time of PT directly impacts the latency of a keyboard.
-Relationship is simple: Higher the current to IR LED, higher the IR light falling
-on PT, lower the response time of PT, and lower the latency of keypress
-detection. With that in mind, here are some values for rise/fall time vs
-current at IR LED. 
-
-
-|  **IR LED Current**  |  **Rise Time**  |  **Fall Time** |
-| --- | --- | --- |
-
-TBD
+It 
 
 ## Optical Matrix
 

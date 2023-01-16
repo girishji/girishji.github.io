@@ -13,6 +13,10 @@ under _layouts and _includes/
 
 --
 
+see for theme: https://leimao.github.io/
+
+--
+
 todo:
 - how long it takes for finger
 - transistor active region 10x current (gain), saturation. fall time longer. resistance of pt
