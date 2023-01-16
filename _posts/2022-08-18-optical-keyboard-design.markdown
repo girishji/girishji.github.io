@@ -72,8 +72,6 @@ For **3.3v**:
 |  **R**  |  **I**  |  **RL** |  **Ic** |
 | --- | --- | --- | --- |
 | 540 | 4.2 mA | 4k | 0.83 mA |
-| 680 | 3.2 mA | 5k | 0.66 mA |
-| 1k | 2.1 mA | 15k | 0.22 mA |
 | 1.5k | 1.4 mA | 27k | 0.18 mA |
 | 2.2k | 1.0 mA | 45k | 0.1 mA |
 
@@ -94,8 +92,7 @@ incident on the base) has been removed. Storage+fall time is slightly larger
 than rise time because transistor junction behaves like a capacitor. The charge
 stored in the base junctions must be removed before the transistor will turn
 off. The deeper the saturation of transistor the longer the turn off time.
-Storage time is a limiting factor in fast switching applications. Rise, storage
-and fall time of PT directly impacts the latency of a keyboard.
+Rise, storage and fall time of PT directly impacts the latency of a keyboard.
 
 How quickly does a PT rise and fall? Here are some illustrative examples for a
 PT driven to saturation. The circuit is the common-emitter amplifier from above
@@ -103,21 +100,27 @@ PT driven to saturation. The circuit is the common-emitter amplifier from above
 IR12-21C/TR8. Rise and Fall times for various **R** and **RL** values are given
 below. The oscilloscope screens represent the items in the table. Green line
 represent the voltage drop across PT and yellow line is the voltage drop across IR
-LED. 
+LED. *us/div* number represents millisec per division (horizontal). Current
+across PT is not calculated since it is a much smaller value.
 
 | **R** | **IR LED Current** | **RL** | **Rise Time** | **Fall+Storage Time** |
 | --- | --- | --- | --- | --- |
-| 1k ohm | 2.3 mA | 30k ohm | ~250 us | ~400 us |
-| 300 ohm | 7.5 mA | 4.5k ohm | | |
-| 100 ohm | 20.2 mA | 1.8k ohm | | |
+| 1k ohm | 2.3 mA | 30k ohm | ~250 us | ~300 us |
+| 300 ohm | 7.5 mA | 4.5k ohm | ~100 us | ~100 us |
+| 100 ohm | 20.2 mA | 1.8k ohm | ~20 us | ~20 us |
 
-![image](/assets/rtime1.png){: width="275" } ![image](/assets/rtime2.png){: width="275" } ![image](/assets/rtime3.png){: width="275"}
+![image](/assets/rtime1.png){: width="550" }
+![image](/assets/rtime2.png){: width="550" }
+![image](/assets/rtime3.png){: width="550"}
 
 In the above pictures voltage values are inverted. 'Rise' is when yellow
 line goes from high to low, and vice versa. Rise and fall times are
 approximations eye-balled from oscilloscope plots. 
 
-It 
+It may appear execessive that at least 20mA current is needed to achieve rise
+time of 20us. But with minor modifications to the circuit it is possible to
+achieve 1us rise/fall time expending only a few mA current. Using photodiodes and
+OpAmps is not necessary. 
 
 ## Optical Matrix
 
