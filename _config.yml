@@ -16,7 +16,6 @@ author: Girish
 #     weights: "400,400i,700,700i"
 #   - name: "Lora"
 #     weights: "400,400i,700,700i"
-google_analytics: G-ZYNKCMZ206
 disqus:
   shortname: # Disqus shortname, e.g. "my_disqus_shortname"
 twitter:
@@ -33,12 +32,35 @@ permalink: /:year/:month/:day/:title/
 # permalink: /:categories/:year/:month/:day/:title/
 
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
-# remote_theme: "broccolini/athena"
 # remote_theme: "tocttou/hacker-blog"
 # remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
 theme: jekyll-theme-hacker
 
+# Use Gem-based method instead of remote_theme
+# With Gem-based themes, directories such as the assets, _layouts, _includes, and
+# _sass are stored in the theme’s gem, hidden from your immediate view. Yet all
+# of the necessary directories will be read and processed during Jekyll’s build
+# process.
+# See https://github.com/b2a3e8/jekyll-theme-console
+
+# theme: jekyll-theme-console
+
+# Theme jekyll-theme-console specific configuration
+# header_pages:
+#   - index.md
+#   - about.md
+#
+# style: dark # dark (default), light or hacker
+# listen_for_clients_preferred_style: true # false (default) or true
+#
+# footer: '<a href="https://github.com/girishji">github page</a>'
+#
+# google_analytics: G-ZYNKCMZ206
+#
+# end of jekyll-theme-console
+
+google_analytics: G-ZYNKCMZ206
 
 plugins:
   - jekyll-remote-theme
