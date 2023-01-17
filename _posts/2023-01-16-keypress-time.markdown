@@ -29,7 +29,7 @@ voltage rises to ~0.8V and "low" when voltage falls below ~2V.
 
 ## Setup
 
-![Setup](/assets/tsetup1.png){: width="400"}
+![Setup](/assets/tsetup1.jpeg){: width="400"}
 
 The test setup consists of a highly responsive optical switch. The
 phototransistor has rise and fall time of a few nanoseconds. You can verify from
