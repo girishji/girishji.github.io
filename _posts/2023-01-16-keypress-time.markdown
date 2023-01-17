@@ -96,3 +96,23 @@ It takes about the same time as key press. Each horizontal division is 100us.
   where GPIO pin can read unpredictable logical value, it is generally not the
   case. If such problem indeed was encountered a comparator with hysteresis
   (Schmitt trigger) can be added to the circuit.
+
+- _How fast can an optical switch detect a keypress?_ As you may have noticed
+  the optical switch used in this experiment has extremely low rise/fall time.
+  So the key event is detected as soon as the voltage crosses TTL logic
+  threshold. The switch uses about 2mA current (for IR LED and phototransistor
+  combined). Given that USB can supply 500mA, all the switches in the keyboard
+  can remain powered up all the time. This linear (non-switched) circuit is only
+  limited by how soon the microprocessor can read the GPIO pins. On Nordic's
+  nrf52840 a tight loop can read GPIO 'ports' (which contain a group of GPIO pins)
+  all at once at 460kHz frequency (see pic). Suffice to say an optical switch
+  will not be on the critical path.
+
+![image](/assets/mindelay.png){: width="550"}
+
+- This test does not measure keyboard latency. After the microprocessor detects
+  state change event it has to ship the data to the host computer. Since
+  keyboards are ususally configured as HID there will be at least 125us polling
+  delay if the USB port is configured as HS (high speed) USB or (most likely the
+  case) 1ms delay if port is FS (full speed) USB. The application on the host
+  computer will have additional delay as well.
