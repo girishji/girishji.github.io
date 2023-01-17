@@ -58,7 +58,7 @@ typing though.
 
 ![image](/assets/fastkp.png){: width="550"}
 
-### Average Key Press
+### Average Key Press 
 
 It takes about 200us to 2ms. Each horizontal division is 100us and vertical
 division is 2V as above. Normal typing could be characterized as average.
@@ -79,7 +79,7 @@ It takes about the same time as key press. Each horizontal division is 100us.
 
 ![image](/assets/avkr.png){: width="550"}
 
-### Note ###:
+### Note
 
 - Although no serious statistical evidence is compiled and sample size is just
   _one_, averaging over 10 keypresses a switch with lighter spring (15gf)
