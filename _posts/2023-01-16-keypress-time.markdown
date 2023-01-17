@@ -81,9 +81,10 @@ It takes about the same time as key press. Each horizontal division is 100us.
 
 ### Note ###:
 
-- Although no serious statistical evidence is compiled, just averaging over 10
-  keypresses a switch with lighter spring (15gf) resulted in faster keypresses
-  compared to heavier Yellow (35gf) and Red (45gf) switches.
+- Although no serious statistical evidence is compiled and sample size is just
+  _one_, averaging over 10 keypresses a switch with lighter spring (15gf)
+  resulted in faster keypresses compared to heavier Yellow (35gf) and Red (45gf)
+  switches.
 
 - With 15gf it is possible (although rare) to get sub 100us keypresses.
 
