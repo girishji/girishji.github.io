@@ -185,16 +185,12 @@ pin.
 
 *Note*: To minimize power losses IR LEDs could be connected in series when
 possible. Modify the above schematic accordingly for your use-case. Voltage
-drop across IR LED (Vf) can be up to 1.6V. For a 5V supply it is
-possible to connect 2 IR LEDs in series. Power loss across the resistor is given by
-**I<sup>2</sup>xR**, where **I** is the current. The smaller the value of
-resistor **R** the lower the power loss. But R value has to be sufficiently
-large such that current can still be regulated. When LEDs heat up, their Vf
-drop, increasing current, causing more heating, more decrease in Vf, and
-possibly thermal runaway and destruction. Calculate R for desired current and
-LED Vf of 1.6V. Then, change LED Vf to 1.4V, keeping the same resistor, and
-calculate the current. Make sure the current is within acceptable limit
-(usually ~20mA).
+drop across IR LED (Vf) is typically 1.2V-1.3V. Using a 5V supply it is
+possible to connect 3 IR LEDs in series and still have headroom for regulation.
+LED forward voltage drop has inverse relationship with temperature. As LEDs
+heat up the forward voltage reduces resulting in more current. This causes
+further increase in temperature and could lead to thermal runaway. It is good
+to keep 20%-30% voltage headroom across resistor for proper regulation.
 
 ### Optimization
 
