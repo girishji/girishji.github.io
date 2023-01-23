@@ -126,7 +126,7 @@ through. The result might surprise you. I used the above setup but changed the
 input pin to ADC (analog to digital converter). When the actuator is pressed,
 voltage slowly rises from 0V to 3.3V. The
 [ADC on nRF52840](https://github.com/girishji/zephyr-xiao-ble) is capable of 16
-bit measurement.
+bit measurement, which provides adequate resolution.
 
 _IR light from LED is so narrow that only about 0.1mm to 0.2mm distance of
 actuator actually participates in voltage change._
