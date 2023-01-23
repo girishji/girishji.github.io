@@ -15,16 +15,17 @@ _TLDR; It takes several milliseconds depending on the switch and finger speed._
 **What is measured?**
 
 A switch has pre-activation (pre-travel), activation and post-activation
-distance. In case of Gateron Yellow optical switches pre-activation is about
-1mm, activation happens for another 1mm (height of optical elements) and
-post-activation distance is about 1.2mm. For other 'non-fast' Gateron MX style
-switches pre-activation is 2mm, activation is 1mm, and post-activation is 2mm.
-Since the setup uses voltage waveform from an optical switch as a trigger only
-the activation process is subject to measurement. Time taken for pre-activation
-and post-activation are not accounted for. Secondly, the switch actuator does
-not have to travel all the way through the actuation zone for the state change
-to be registered in the microcontroller. The GPIO pin registers a "high" when
-voltage rises to ~0.8V and "low" when voltage falls below ~2V.
+distance. In case of Gateron Yellow optical switches, so called 'speed'
+switches, pre-activation is about 1mm, activation happens for another 1mm
+(height of optical elements) and post-activation distance is about 1.2mm. For
+other Gateron MX style switches pre-activation is 2mm, activation is 1mm, and
+post-activation is 2mm. Since the setup uses voltage waveform from an optical
+switch as a trigger only the activation process is subject to measurement. Time
+taken for pre-activation and post-activation are not accounted for. Secondly,
+the switch actuator does not have to travel all the way through the actuation
+zone for the state change to be registered in the microcontroller. The GPIO pin
+registers a "high" when voltage rises to ~0.8V and "low" when voltage falls
+below ~2V.
 
 ## Setup
 
@@ -82,8 +83,8 @@ It takes about the same time as key press. Each horizontal division is 100us.
 
 - Although no serious statistical evidence is compiled and sample size is just
   _one_, averaging over 10 key-presses a switch with lighter spring (15gf)
-  resulted in faster key-presses compared to heavier Yellow (35gf) and Red (45gf)
-  switches.
+  resulted in faster key-presses compared to heavier Yellow (35gf) and Red
+  (45gf) switches.
 
 - With 15gf it is possible (although rare) to get sub 100us key-presses.
 
