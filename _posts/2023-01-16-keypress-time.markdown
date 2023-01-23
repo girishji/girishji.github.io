@@ -117,7 +117,7 @@ It takes about the same time as key press. Each horizontal division is 100us.
   case) 1ms delay if port is FS (full speed) USB. The application on the host
   computer will have additional delay as well.
 
-## Correction
+## Addendum
 
 After the above experiment I was curious to find out if the voltage across
 phototransistor changes throughout the 1mm height through which the switch
