@@ -230,11 +230,17 @@ echom $'Elapsed time: {start->reltime()-reltimestr()}'
 
 You can also abort a task if it goes over a timeout. Use `reltimefloat()` for
 that.
+
 ```
 var start = reltime()
 const timeout = 2000 # millisec
 
-while (start->reltime()->reltimefloat() * 1000) < timeout)
-...
+while true
+
+    # ... process a batch ...
+
+    if start->reltime()->reltimefloat() * 1000) > timeout
+        break
+    endif
 endwhile
 ```
