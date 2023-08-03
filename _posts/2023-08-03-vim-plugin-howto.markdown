@@ -183,8 +183,8 @@ using `:messages`. For checking regex you can use `:echo
 
 Sometimes you may ask yourself if it is worth caching a dictionary key
 value outside a loop, and discover that Vim9 compiler does not do loop optimization.
-You can verify using `:disassembly` that it uses unnecessary LOADSCRIPT and
-USEDICT instructions in the loop (to dereference key value) when value is not
+You can verify using `:disassembly` that it uses LOADSCRIPT and
+USEDICT instructions inside the loop when value is not
 cached.
 
 ```
@@ -214,7 +214,7 @@ callback, for example, `timer_start(0, function(MyWorker, [arg1, arg2]))`.
 Typically you break down your long running task into batches (say you want to
 search a few thousand lines then search in batches of a thousand lines each).
 Each batch can be scheduled using `timer_start()` as above, with one of the arguments to
-`MyWorker()` being the index into a batch array. These tasks should be chained by
+`MyWorker()` being the index into a batch data array. These tasks should be chained by
 having `MyWorker()` call the next `timer_start()` (for the next batch). The
 magic here is that Vim schedules any newly typed keystrokes between each
 `MyWorker()` invocation. Your plugin remains responsive to keystrokes
@@ -226,11 +226,13 @@ Calling `reltime()` before and after a code section measures execution time.
 
 ```
 var start = reltime()
+
 #... do something ...
+
 echom $'Elapsed time: {start->reltime()-reltimestr()}'
 ```
 
-You can also abort a task if it goes over a timeout. Use `reltimefloat()` for
+You can abort a task if it goes over a timeout. Use `reltimefloat()` for
 that.
 
 ```
@@ -241,7 +243,7 @@ while true
 
     # ... process a batch ...
 
-    if start->reltime()->reltimefloat() * 1000) > timeout
+    if (start->reltime()->reltimefloat() * 1000) > timeout
         break
     endif
 endwhile
