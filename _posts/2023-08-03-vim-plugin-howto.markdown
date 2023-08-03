@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Howto: Vim Plugin using Vim9 Script"
+title:  "Vim Plugin using Vim9 Script"
 date:   2023-08-03 10:16:45 +0200
 categories:
 tags: vim vim9script vim-plugin howto
@@ -12,8 +12,8 @@ where you may want to extend the functionality of Vim by writing your own
 plugin. The release of [Vim9 script](https://vimhelp.org/vim9.txt.html) has
 made the task less intimidating since the new scripting language [resembles
 Python](https://github.com/yegappan/VimScriptForPythonDevelopers).
-This blog post is not a beginner guide but rather a collection of thoughts I
-came across while developing
+This blog post is not a beginner guide but rather a collection of thoughts from
+my experience developing 
 [autosuggest](https://github.com/girishji/autosuggest.vim) and
 [vimcomplete](https://github.com/girishji/vimcomplete).
 
@@ -21,22 +21,23 @@ If you are on the fence deciding whether to implement your idea in
 [Lua](https://www.lua.org) for
 [Neovim](https://neovim.io/) or [Vim9script](https://vimhelp.org/vim9.txt.html)
 for [Vim](https://www.vim.org), I have some opinions. Even
-though legacy Vim script work on both Vim and Neovim I intentionally did not
-learn it because, well, it is just weird and unreadable. Both Lua and
-Vim9script are compiled into bytecode (unlike legacy script). I wrote a few
+though legacy Vim script works on both Vim and Neovim I intentionally did not
+learn it because, well, it is just weird and unreadable.
+
+Both Lua and Vim9script are compiled into bytecode (unlike legacy script). I wrote a few
 non-trivial plugins in Lua before switching over to Vim9script. I prefer the
 latter because the code tends to be more compact, has more advanced language
 features for functional programming (closures with lambdas, for instance), has
-better regex support, and offers smoother interface to Vim's APIs. Latest
-version of Vim9script offers first-class OOP support with _classes_. But Lua is
+better regex support, and offers smoother interface to Vim's APIs. But Lua is
 its own fun language to program in and Neovim keeps experimenting with new
-features. Ultimately it boils down to preference and both languages are easy to
-learn. If Vim9script tickles your curiosity then read on.
+features. Ultimately it boils down to preference. If Vim9script tickles your
+curiosity then read on.
 
-### Directory Structure
+## Directory Structure
 
 The first step in writing a plugin is to organize your folders. Vim expects
-certain folder names. Here is a typical organization for github hosted plugins.
+certain folder names. Here is a typical organization for github hosted
+repositories.
 
 ```
 plugin_name
@@ -54,9 +55,9 @@ plugin_name
 Your main directory name should be the name of the plugin. Under that
 directory, the plugin should have a `plugin` and an `autoload` directory:
 
-- The plugin directory sets up the plugin. It should include the commands and
+- The `plugin` directory sets up the plugin. It should include the commands and
   keybindings that you want in your plugin. The file `plugin_name.vim` gets
-  called first, followed by other files in this directory.
+  sourced first, followed by other files in this directory.
 - The `autoload` directory holds the meat of the plugin. It is only loaded when
   one of the commands defined in the `plugin` directory gets called. On-demand
   loading keeps Vim's initialization faster.
@@ -65,7 +66,7 @@ directory, the plugin should have a `plugin` and an `autoload` directory:
 - In addition, you may need a `import` directory if you wish to export
   functions for use in other plugins.
 
-** Vim has extensive documentation. Anytime you have doubt over `foo` try
+**Vim has extensive documentation. Anytime you have doubt over `foo` try
 `:helpgrep foo` or `:h foo<tab>` after enabling `wildmenu` or use
 [autosuggest](https://github.com/girishji/autosuggest.vim).**
 
@@ -90,9 +91,9 @@ import autoload '../autoload/foo.vim'
 command! -nargs=0 MyCommand foo.somefunction()
 ```
 
-Also, make use of `User` `autocmd` event to synchronize parts of initialization. 
+Also, make use of `User` auto-command event to synchronize parts of initialization. 
 
-### Language Features
+## Language Features
 
 [Vim9script](https://vimhelp.org/vim9.txt.html) is fairly easy to learn. You
 can also pick up some [advanced
@@ -101,28 +102,28 @@ are familiar with Python there is [VimScript For Python
 Developers](https://github.com/yegappan/VimScriptForPythonDevelopers). Finally,
 here are some suggestions to make your programming task more fun.
 
-##### Lambda Expressions
+### Lambda Expressions
 
 If you are using any type of data manipulation lambda expressions (`:h lambda`)
 comes in handy. You can use them with usual suspects `filter()`, `map()`, `sort()` etc.
 
-Functions can be chained used `->`. Use the `arg->func()` idiom consistently
+Functions can be chained using `->` operator. Use the `arg->func()` idiom consistently
 throughout.
 
-##### Meta Tables
+### Meta Tables
 
-Vim9script now offers _classes_ (`:h class`). But you can also emulate
+Vim9script now offers _classes_ (`:h class`). You can also emulate
 an object (encapsulation) using a simple dictionary and function references
 (`:h funcref()`, `:h function()`)
 
 ```
 def NewMyObject(someArg: bool): dict<any>
     var contents = {
-	    property1: [],
-	    property2: someArg,
+        property1: [],
+        property2: someArg,
     }
     contents->extend({
-	    functionName1: function(FunctionName1, [contents]),
+        functionName1: function(FunctionName1, [contents]),
     })
     return contents
 enddef
@@ -136,29 +137,48 @@ var fnArg = 22
 myObj.functionName1(fnArg)
 ```
 
-##### Options
+### Options
 
 Users of your plugin may need to set options. Use a dictionary to encapsulate
-all options. Stay away from the habit of using global variables if you have
-more than a few options (pollutes global namespace). You can use a global
-function that takes a dictionary argument to set the options. There is also an
-option to use exported function, but this limits the users to only use
-Vim9script for configuration. So the latter method is preferred. See
-[LSP](https://github.com/yegappan/lsp) for how it is done. 
+all options. It is best not to use a global variable for each option, since they
+pollute global namespace. You can use a global function that takes a dictionary argument to
+set the options. There is also a possibility to use exported function, but this
+limits the users to only use Vim9script for configuration. So the former method
+is preferred.
 
-##### Strings
+In your `autoload/options.vim` you can define the options.
+
+```
+export var myOptions: dict<any> = {
+    option1: '',
+    option2: false,
+    option3: [],
+}
+```
+
+In `plugin/plugin_name.vim` define a global function.
+
+```
+import autoload '../autoload/options.vim'
+
+def! g:PluginNameOptionsSet(opts: dict<any>)
+    options.myOptions->extend(opts)
+enddef
+```
+
+### Strings
 
 Be familiar with `==#`, `==?`, `=~#`, `=~?`, `!~`, `match()`, `matchstr()`,
 `matchlist()`, `\c`, `\v`, `"` vs `'` etc. See help files.
 
 Use `$'sometext {var}'` as opposed to `"sometext " .. var`.
 
-##### Debug
+### Debug
 
 I use `echo` and `echom` in scripts. For checking regex you can use `:echo
 'teststring' =~ 'pattern'` or `:echo matchstr('foo', 'pattern')`.
 
-##### Disassemble
+### Disassemble
 
 Sometimes you may ask yourself if it is worth caching a dictionary key
 value outside a loop, and discover that Vim9 compiler does not do optimization.
@@ -179,5 +199,3 @@ USEDICT instructions in the loop.
 EOF
 )
 ```
-
-
