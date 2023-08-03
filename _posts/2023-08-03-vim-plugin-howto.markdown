@@ -227,7 +227,7 @@ Calling `reltime()` before and after a code section measures execution time.
 ```
 var start = reltime()
 
-#... do something ...
+# ... do something ...
 
 echom $'Elapsed time: {start->reltime()-reltimestr()}'
 ```
