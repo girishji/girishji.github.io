@@ -63,11 +63,11 @@ directory, the plugin should have a `plugin` and an `autoload` directory:
   loading keeps Vim's initialization faster.
 - `doc` directory is optional but highly recommended. Learn the Vim help file
   syntax. You could include even more information here than in `README.md`.
-- In addition, you may need a `import` directory if you wish to export
+- In addition, you may need an `import` directory if you wish to export
   functions for use in other plugins.
 
-**Vim has extensive documentation. Anytime you have doubt over `foo` try
-`:helpgrep foo` or `:h foo<tab>` after enabling `wildmenu` or use
+**Note: Vim has extensive documentation. Anytime you have doubt over `foo` try
+`:helpgrep foo` or `:h foo<tab>` (with `wildmenu`) or use
 [autosuggest](https://github.com/girishji/autosuggest.vim).**
 
 Since `plugin/plugin_name.vim` gets sourced first, include the following
@@ -105,7 +105,7 @@ here are some suggestions to make your programming task more fun.
 ### Lambda Expressions
 
 If you are using any type of data manipulation lambda expressions (`:h lambda`)
-comes in handy. You can use them with usual suspects `filter()`, `map()`, `sort()` etc.
+come in handy. You can use them with usual suspects `filter()`, `map()`, `sort()` etc.
 
 Functions can be chained using `->` operator. Use the `arg->func()` idiom consistently
 throughout.
@@ -156,7 +156,7 @@ export var myOptions: dict<any> = {
 }
 ```
 
-In `plugin/plugin_name.vim` define a global function.
+In `plugin/plugin_name.vim` define a global function to set options.
 
 ```
 import autoload '../autoload/options.vim'
@@ -175,15 +175,17 @@ Use `$'sometext {var}'` as opposed to `"sometext " .. var`.
 
 ### Debug
 
-I use `echo` and `echom` in scripts. For checking regex you can use `:echo
+For the most part `echom` in scripts is adequate. You can view the messages
+using `:messages`. For checking regex you can use `:echo
 'teststring' =~ 'pattern'` or `:echo matchstr('foo', 'pattern')`.
 
 ### Disassemble
 
 Sometimes you may ask yourself if it is worth caching a dictionary key
-value outside a loop, and discover that Vim9 compiler does not do optimization.
-You can verify using `:disassembly` that it uses additional LOADSCRIPT and
-USEDICT instructions in the loop.
+value outside a loop, and discover that Vim9 compiler does not do loop optimization.
+You can verify using `:disassembly` that it uses unnecessary LOADSCRIPT and
+USEDICT instructions in the loop (to dereference key value) when value is not
+cached.
 
 ``` 
 % vim -Nu NONE -S <(cat <<'EOF'                                                                                       1 :(
@@ -192,7 +194,8 @@ USEDICT instructions in the loop.
     def Func()
         var fooy = foo.y
         for i in range(5)
-            echom fooy
+            # echom fooy     # good: using cached value
+            echom foo.y      # not good
         endfor
     enddef
     disa Func
