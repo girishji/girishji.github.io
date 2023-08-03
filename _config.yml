@@ -1,13 +1,13 @@
 # Setup
-title: Optical Matrix
+title: girish
 # email: girishji_[delete_underscore][at]gmail[dot]com
 # email: girishji@gmail.com
 emailme: mailto:girishji@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Low Latency Optical Keyboards
-baseurl: "" 
-url: "" 
-twitter_username: 
+  Building Things
+baseurl: ""
+url: ""
+twitter_username:
 github_username:  girishji
 author: Girish
 
@@ -34,8 +34,8 @@ permalink: /:year/:month/:day/:title/
 # remote_theme: "mmistakes/so-simple-theme@3.2.0"
 # remote_theme: "tocttou/hacker-blog"
 # remote_theme: "yous/whiteglass"
-# theme: jekyll-theme-slate
-theme: jekyll-theme-hacker
+theme: jekyll-theme-slate
+# theme: jekyll-theme-hacker
 
 # Use Gem-based method instead of remote_theme
 # With Gem-based themes, directories such as the assets, _layouts, _includes, and
