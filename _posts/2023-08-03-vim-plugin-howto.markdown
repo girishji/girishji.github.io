@@ -88,10 +88,13 @@ From a script in `plugin` directory you could define a command as follows.
 
 ```
 import autoload '../autoload/foo.vim'
-command! -nargs=0 MyCommand foo.somefunction()
+command! -nargs=0 MyCommand foo.SomeFunction()
 ```
 
-Also, make use of `User` auto-command event to synchronize parts of initialization. 
+In the above example, `SomeFunction()` needs to be exported (`:h vim9-export`)
+from `foo.vim`.
+
+Also, make use of `User` (`:h User`) auto-command event to synchronize parts of initialization.
 
 ## Language Features
 
