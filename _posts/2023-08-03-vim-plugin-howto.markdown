@@ -188,7 +188,8 @@ USEDICT instructions in the loop (to dereference key value) when value is not
 cached.
 
 ```
- % vim -Nu NONE -S <(cat <<'EOF'                                                                                       1 :( vim9script
+% vim -Nu NONE -S <(cat <<'EOF'                                                                                       1 :(   
+    vim9script
     var foo = {x: 1, y: 2}
     def Func()
         var fooy = foo.y
