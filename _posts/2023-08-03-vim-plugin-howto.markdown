@@ -205,7 +205,7 @@ EOF
 
 ### Asynchronous Execution
 
-Vim offers `job_start()` for truly parallel execution. You can spawn a new
+Vim offers `job_start()` for truly parallel execution (on a multicore system). You can spawn a new
 process and wait for output. However, there is also a lightweight option that offers
 concurrent execution. It may sound non-intuitive but you can use
 `timer_start()` with `0` timeout to schedule your function for execution at a
@@ -217,8 +217,8 @@ Each batch can be scheduled using `timer_start()` as above, with one of the argu
 `MyWorker()` being the index into a batch data array. These tasks should be chained by
 having `MyWorker()` call the next `timer_start()` (for the next batch). The
 magic here is that Vim schedules any newly typed keystrokes between each
-`MyWorker()` invocation. Your plugin remains responsive to keystrokes
-while it keeps working in the background.
+`MyWorker()` invocation. Even though Vim is single-threaded your plugin remains
+responsive to keystrokes even while working on a long running task.
 
 ### Performance Measurement and Timing
 
