@@ -187,9 +187,7 @@ You can verify using `:disassembly` that it uses unnecessary LOADSCRIPT and
 USEDICT instructions in the loop (to dereference key value) when value is not
 cached.
 
-``` 
-% vim -Nu NONE -S <(cat <<'EOF'                                                                                       1 :(
-    vim9script
+``` % vim -Nu NONE -S <(cat <<'EOF'                                                                                       1 :( vim9script
     var foo = {x: 1, y: 2}
     def Func()
         var fooy = foo.y
@@ -201,4 +199,42 @@ cached.
     disa Func
 EOF
 )
+```
+
+### Asynchronous Execution
+
+Vim offers `job_start()` for truly parallel execution. You can spawn a new
+process and wait for output. However, there is also a lightweight option that offers
+concurrent execution. It may sound non-intuitive but you can use
+`timer_start()` with `0` timeout to schedule your function for execution at a
+later time when Vim's main-loop is free. You can also pass arguments to
+callback, for example, `timer_start(0, function(MyWorker, [arg1, arg2]))`.
+Typically you break down your long running task into batches (say you want to
+search a few thousand lines in batches of a thousand lines each). Each batch
+can be scheduled using `timer_start()` as above, with one of the arguments to
+`MyWorker()` being the index into a batch array. These tasks should be chained by
+having `MyWorker()` call the next `timer_start()` (for the next batch). The
+magic here is that Vim schedules any newly typed keystrokes between each
+`timer_start()` batch processing. Your plugin remains responsive to keystrokes
+while it keeps working in the background.
+
+### Performance Measurement and Timing
+
+Calling `reltime()` before and after a code section measures execution time.
+
+```
+var start = reltime()
+#... do something ...
+echom $'Elapsed time: {start->reltime()-reltimestr()}'
+```
+
+You can also abort a task if it goes over a timeout. Use `reltimefloat()` for
+that.
+```
+var start = reltime()
+const timeout = 2000 # millisec
+
+while (start->reltime()->reltimefloat() * 1000) < timeout)
+...
+endwhile
 ```
