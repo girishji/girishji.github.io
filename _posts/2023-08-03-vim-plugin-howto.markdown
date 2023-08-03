@@ -212,12 +212,12 @@ concurrent execution. It may sound non-intuitive but you can use
 later time when Vim's main-loop is free. You can also pass arguments to
 callback, for example, `timer_start(0, function(MyWorker, [arg1, arg2]))`.
 Typically you break down your long running task into batches (say you want to
-search a few thousand lines in batches of a thousand lines each). Each batch
-can be scheduled using `timer_start()` as above, with one of the arguments to
+search a few thousand lines then search in batches of a thousand lines each).
+Each batch can be scheduled using `timer_start()` as above, with one of the arguments to
 `MyWorker()` being the index into a batch array. These tasks should be chained by
 having `MyWorker()` call the next `timer_start()` (for the next batch). The
 magic here is that Vim schedules any newly typed keystrokes between each
-`timer_start()` batch processing. Your plugin remains responsive to keystrokes
+`MyWorker()` invocation. Your plugin remains responsive to keystrokes
 while it keeps working in the background.
 
 ### Performance Measurement and Timing
