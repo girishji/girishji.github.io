@@ -112,9 +112,9 @@ throughout.
 
 ### Meta Tables
 
-Vim9script now offers _classes_ (`:h class`). You can also emulate
+Vim9script will offer _class_ in the near future (`:h class`). In the meantime, you can emulate
 an object (encapsulation) using a simple dictionary and function references
-(`:h funcref()`, `:h function()`)
+(`:h funcref()`, `:h function()`).
 
 ```
 def NewMyObject(someArg: bool): dict<any>
