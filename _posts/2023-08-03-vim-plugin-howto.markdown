@@ -111,7 +111,7 @@ If you are using any type of data manipulation lambda expressions (`:h lambda`)
 come in handy. You can use them with usual suspects `filter()`, `map()`, `reduce()`, `sort()` etc.
 
 Functions can be chained using `->` operator. Use the `arg->func()` idiom consistently
-throughout.
+throughout. Keep your code readable and bloat-free.
 
 ### Meta Tables
 
