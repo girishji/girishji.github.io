@@ -4,4 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-Things I do in my spare time.
+I am a software engineer.
