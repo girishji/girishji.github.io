@@ -40,23 +40,23 @@ certain folder names. Here is a typical organization for github hosted
 repositories.
 
 ```
-plugin_name
+myplugin
 ├── LICENSE
 ├── README.md
 ├── autoload
 │   ├── foo.vim
 │   └── bar.vim
 ├── doc
-│   └── plugin_name.txt
+│   └── myplugin.txt
 └── plugin
-    └── plugin_name.vim
+    └── myplugin.vim
 ```
 
 Your main directory name should be the name of the plugin. Under that
 directory, the plugin should have a `plugin` and an `autoload` directory:
 
 - The `plugin` directory sets up the plugin. It should include the commands and
-  keybindings that you want in your plugin. The file `plugin_name.vim` gets
+  keybindings that you want in your plugin. The file `myplugin.vim` gets
   sourced first, followed by other files in this directory.
 - The `autoload` directory holds the meat of the plugin. It is only loaded when
   one of the commands defined in the `plugin` directory gets called. On-demand
@@ -70,7 +70,7 @@ directory, the plugin should have a `plugin` and an `autoload` directory:
 `:helpgrep foo` or `:h foo<tab>` (with `wildmenu`) or use
 [autosuggest](https://github.com/girishji/autosuggest.vim).**
 
-Since `plugin/plugin_name.vim` gets sourced first, include the following
+Since `plugin/myplugin.vim` gets sourced first, include the following
 boilerplate code at the top.
 
 ```
@@ -79,7 +79,7 @@ if !has('vim9script') ||  v:version < 900
     finish
 endif
 vim9script
-g:loaded_plugin_name = true
+g:loaded_myplugin = true
 ```
 
 All other files should include `vim9script` at the top. In order to use
@@ -159,7 +159,7 @@ export var myOptions: dict<any> = {
 }
 ```
 
-In `plugin/plugin_name.vim` define a global function to set options.
+In `plugin/myplugin.vim` define a global function to set options.
 
 ```
 import autoload '../autoload/options.vim'
