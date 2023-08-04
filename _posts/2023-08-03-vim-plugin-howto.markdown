@@ -107,7 +107,7 @@ here are some suggestions to make your programming task more fun.
 
 ### Lambda Expressions
 
-If you are using any type of data manipulation lambda expressions (`:h lambda`)
+If you are doing any type of data manipulation lambda expressions (`:h lambda`)
 come in handy. You can use them with usual suspects `filter()`, `map()`, `reduce()`, `sort()` etc.
 
 Functions can be chained using `->` operator. Use the `arg->func()` idiom consistently
