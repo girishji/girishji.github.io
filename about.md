@@ -6,4 +6,4 @@ permalink: /about/
 
 I am a software engineer.
 
-You can follow my spare time projects at [github](https://github.com/girishji).
+Find me on [github](https://github.com/girishji).
