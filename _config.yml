@@ -36,9 +36,10 @@ permalink: /:year/:month/:day/:title/
 # remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
 # theme: jekyll-theme-hacker
-remote_theme: pages-themes/hacker@v0.2.0
+# remote_theme: pages-themes/hacker@v0.2.0
 # remote_theme: "jekyll/minima"
 # theme: jekyll-theme-midnight
+theme: minima
 
 # Use Gem-based method instead of remote_theme
 # With Gem-based themes, directories such as the assets, _layouts, _includes, and
