@@ -56,8 +56,8 @@ Your main directory name should be the name of the plugin. Under that
 directory, the plugin should have a `plugin` and an `autoload` directory:
 
 - The `plugin` directory sets up the plugin. It should include the commands and
-  keybindings that you want in your plugin. The file `myplugin.vim` gets
-  sourced first, followed by other files in this directory.
+  keybindings that you want in your plugin. The files in this directory are
+  sourced in alphabetically order (`:h load-plugins`).
 - The `autoload` directory holds the meat of the plugin. It is only loaded when
   one of the commands defined in the `plugin` directory gets called. On-demand
   loading keeps Vim's initialization faster.
@@ -70,8 +70,7 @@ directory, the plugin should have a `plugin` and an `autoload` directory:
 `:helpgrep foo` or `:h foo<tab>` (with `wildmenu`) or use
 [autosuggest](https://github.com/girishji/autosuggest.vim).**
 
-Since `plugin/myplugin.vim` gets sourced first, include the following
-boilerplate code at the top.
+Include the following boilerplate code at the top of `plugin/myplugin.vim`.
 
 ```
 if !has('vim9script') ||  v:version < 900
