@@ -108,14 +108,14 @@ here are some suggestions to make your programming task more fun.
 ### Lambda Expressions
 
 If you are using any type of data manipulation lambda expressions (`:h lambda`)
-come in handy. You can use them with usual suspects `filter()`, `map()`, `sort()` etc.
+come in handy. You can use them with usual suspects `filter()`, `map()`, `reduce()`, `sort()` etc.
 
 Functions can be chained using `->` operator. Use the `arg->func()` idiom consistently
 throughout.
 
 ### Meta Tables
 
-Vim9script will offer _class_ in the near future (`:h class`). In the meantime, you can emulate
+Vim9script will have _class_ (`:h class`) in the near future. In the meantime, you can emulate
 an object (encapsulation) using a simple dictionary and function references
 (`:h funcref()`, `:h function()`).
 
