@@ -7,5 +7,3 @@
 #
 layout: home
 ---
-
-[[github]](https://github.com/girishji)
