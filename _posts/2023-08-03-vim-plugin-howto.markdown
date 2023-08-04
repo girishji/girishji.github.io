@@ -232,7 +232,7 @@ var start = reltime()
 
 # ... do something ...
 
-echom $'Elapsed time: {start->reltime()-reltimestr()}'
+echom $'Elapsed time: {start->reltime()->reltimestr()}'
 ```
 
 You can abort a task if it goes over a timeout. Use `reltimefloat()` for
