@@ -4,6 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-Stuff I do in my spare time.
-
-Girish Palya
+Things I do in my spare time.
