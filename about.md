@@ -4,4 +4,4 @@ title: "About"
 permalink: /about/
 ---
 
-Girish
+Stuff I do in my spare time.
