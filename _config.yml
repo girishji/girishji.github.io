@@ -35,7 +35,8 @@ permalink: /:year/:month/:day/:title/
 # remote_theme: "tocttou/hacker-blog"
 # remote_theme: "yous/whiteglass"
 # theme: jekyll-theme-slate
-theme: jekyll-theme-hacker
+# theme: jekyll-theme-hacker
+remote_theme: pages-themes/hacker@v0.2.0
 # remote_theme: "jekyll/minima"
 # theme: jekyll-theme-midnight
 
