@@ -242,3 +242,26 @@ while (start->reltime()->reltimefloat() * 1000) < timeout
     # ... process a batch ...
 endwhile
 ```
+
+### Providing APIs to Other Plugins
+
+Create a directory named `import` at the top level and a file inside it called
+`fooplugin.vim`. Inside this file you can expose your APIs by exporting functions.
+
+```
+vim9script
+import '../autoload/myfoo.vim'
+
+export def FooAPI()
+    myfoo.MyService()
+enddef
+```
+
+From other plugins you can import the API.
+
+```
+import 'fooplugin.vim'
+def MyFunc()
+    fooplugin.FooAPI()
+enddef
+```
