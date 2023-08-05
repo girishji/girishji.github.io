@@ -222,7 +222,7 @@ magic here is that Vim schedules any newly typed keystrokes between each
 `MyWorker()` invocation. Even though Vim is single-threaded your plugin remains
 responsive to keystrokes even while working on a long running task.
 
-For demonstration see
+For demonstration, see
 [search.vim](https://github.com/girishji/autosuggest.vim/blob/main/autoload/search.vim)
 of [autosuggest](https://github.com/girishji/autosuggest.vim).
 
