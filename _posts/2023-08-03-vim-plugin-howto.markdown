@@ -228,9 +228,7 @@ Calling `reltime()` before and after a code section measures execution time.
 
 ```
 var start = reltime()
-
 # ... do something ...
-
 echom $'Elapsed time: {start->reltime()->reltimestr()}'
 ```
 
@@ -238,15 +236,9 @@ You can abort a task if it goes over a timeout. Use `reltimefloat()` for
 that.
 
 ```
-var start = reltime()
 const timeout = 2000 # millisec
-
-while true
-
+var start = reltime()
+while (start->reltime()->reltimefloat() * 1000) < timeout
     # ... process a batch ...
-
-    if (start->reltime()->reltimefloat() * 1000) > timeout
-        break
-    endif
 endwhile
 ```
