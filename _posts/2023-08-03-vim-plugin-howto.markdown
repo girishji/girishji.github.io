@@ -243,10 +243,12 @@ while (start->reltime()->reltimefloat() * 1000) < timeout
 endwhile
 ```
 
-### Providing APIs to Other Plugins
+### Expose APIs to Other Plugins
 
-Create a directory named `import` at the top level and a file inside it called
-`fooplugin.vim`. Inside this file you can expose your APIs by exporting functions.
+Say you want other plugins to be able to call `FooAPI()` function of your
+plugin. Create a directory named `import` at the top level and a file inside it
+(say `fooplugin.vim`). Inside this file you can expose your APIs by exporting
+functions.
 
 ```
 vim9script
@@ -257,7 +259,7 @@ export def FooAPI()
 enddef
 ```
 
-From other plugins you can import the API.
+Other plugins can import your API.
 
 ```
 import 'fooplugin.vim'
