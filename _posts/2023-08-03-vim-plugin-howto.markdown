@@ -223,8 +223,7 @@ magic here is that Vim schedules any newly typed keystrokes between each
 responsive to keystrokes even while working on a long running task.
 
 For demonstration, see
-[search.vim](https://github.com/girishji/autosuggest.vim/blob/main/autoload/search.vim)
-of [autosuggest](https://github.com/girishji/autosuggest.vim), or
+[autosuggest](https://github.com/girishji/autosuggest.vim/blob/main/autoload/search.vim) or
 [ngram-complete](https://github.com/girishji/ngram-complete.vim/blob/main/autoload/unigram.vim).
 
 ### Performance Measurement and Timing
