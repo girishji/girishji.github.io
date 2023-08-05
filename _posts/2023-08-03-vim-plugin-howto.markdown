@@ -272,7 +272,7 @@ def MyFunc()
 enddef
 ```
 
-See API in
+For demonstration, see API in
 [vimcomplete](https://github.com/girishji/vimcomplete/blob/main/import/vimcompletor.vim)
 used in
 [ngram-complete](https://github.com/girishji/ngram-complete.vim/blob/main/plugin/ngram-complete.vim).
