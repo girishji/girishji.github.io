@@ -271,3 +271,8 @@ def MyFunc()
     fooplugin.FooAPI()
 enddef
 ```
+
+See API in
+[vimcomplete](https://github.com/girishji/vimcomplete/blob/main/import/vimcompletor.vim)
+used in
+[ngram-complete](https://github.com/girishji/ngram-complete.vim/blob/main/plugin/ngram-complete.vim).
