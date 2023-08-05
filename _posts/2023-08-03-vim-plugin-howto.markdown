@@ -279,6 +279,6 @@ used in
 
 ### Autocompletion for Vim9 Script
 
-LSP for Vim9 script does not exist yet. In the meantime, you can use the
+(Shameless plug) LSP for Vim9 script does not exist yet. In the meantime, you can use the
 autocompletion extension for Vim9 script language
 [vimscript-complete](https://github.com/girishji/vimscript-complete.vim).
