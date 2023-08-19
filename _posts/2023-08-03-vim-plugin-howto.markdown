@@ -27,7 +27,7 @@ learn it because, well, it is just weird and unreadable.
 Both Lua and Vim9script are compiled into bytecode (unlike legacy script). I wrote a few
 non-trivial plugins in Lua before switching over to Vim9script. I prefer the
 latter because the code tends to be more compact, has more advanced language
-features for functional programming (closures with lambdas, for instance), has
+features for functional programming, has
 better regex support, and offers smoother interface to Vim's APIs. But Lua is
 its own fun language to program in and Neovim keeps experimenting with new
 features. Ultimately it boils down to preference. If Vim9script tickles your
